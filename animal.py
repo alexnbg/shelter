@@ -2,21 +2,21 @@ class Animal:
 
     def __init__(self,
                 id = 0,
-                date_create = None,
+                date_create = '',
                 shelter = '',
-                animalType = None,
+                animal_type = '',
                 name = '',
                 age = 0,
                 caretaker = 'Unassigned',
-                aliveStatus = True
+                alive_status = True
                 ):
 
         self.id = id
         self.date_create = date_create
         self.shelter = shelter
 
-        self.animalType = animalType
+        self.animal_type = animal_type
         self.name = name
         self.age = age
         self.caretaker = caretaker
-        self.aliveStatus = aliveStatus
+        self.alive_status = alive_status
