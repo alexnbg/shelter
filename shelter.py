@@ -1,5 +1,6 @@
 import datetime
 from animal import Animal
+from id_gen import id_gen
 
 class Shelter:
     
@@ -7,17 +8,16 @@ class Shelter:
 
     def __init__(self,
                 name,
-                id_counter = 0
+                id_counter_0 = 0
                 ):
         self.name = name
-        self.id_counter = id_counter
+        self.id_counter = id_gen(id_counter_0)
 
 
 # Methods
 
     def add_animal_manual(self):
-        self.id_counter += 1
-        curent_animal = Animal(self.id_counter,
+        curent_animal = Animal(self.id_counter.id,
                             datetime.date.today().isoformat(),
                             self.name,
                             input("Animal type: "),
@@ -27,21 +27,20 @@ class Shelter:
         self.list_animals.append(curent_animal)
 
     def add_animal(self,
-                    animalType = None,
+                    animal_type = None,
                     name = '',
                     age = 0,
                     caretaker = 'Unassigned',
-                    aliveStatus = True
+                    alive_status = True
                     ):
-        self.id_counter += 1
-        curent_animal = Animal(self.id_counter,
+        curent_animal = Animal(self.id_counter.id,
                             datetime.date.today().isoformat(),
                             self.name,
-                            animalType,
+                            animal_type,
                             name,
                             age,
                             caretaker,
-                            aliveStatus)
+                            alive_status)
         self.list_animals.append(curent_animal)
     
     def remove_animal(self, id):
@@ -65,10 +64,9 @@ class Shelter:
             print (
                 str(item.id).rjust(4),
                 item.date_create.ljust(11),
-                item.animalType.ljust(8),
+                item.animal_type.ljust(8),
                 item.name.ljust(12),
                 str(item.age).ljust(5),
                 item.caretaker.ljust(12),
-                'Alive' if item.aliveStatus else 'Deceased')
+                'Alive' if item.alive_status else 'Deceased')
         print('\n')
-
